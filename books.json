@@ -1,0 +1,20 @@
+[
+  {
+    "isbn": "20",
+    "title": "Teste",
+    "description": "Opa",
+    "publisher": "Tamaram",
+    "author": "Josue",
+    "category": "Amendrotador",
+    "copiesCount": 20
+  },
+  {
+    "isbn": "25",
+    "title": "a",
+    "description": "a",
+    "publisher": "a",
+    "author": "a",
+    "category": "a",
+    "copiesCount": 1
+  }
+]
