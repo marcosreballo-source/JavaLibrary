@@ -32,11 +32,30 @@ O sistema foca fortemente na aplicação dos conceitos da Programação Orientad
 *(Nota: Caso você não possua o Maven instalado globalmente, usuários de Windows podem usar o script incluso no projeto digitando `.\mvnw.cmd clean javafx:run`)*
 
 ## Suíte de Testes Automatizados
-O projeto conta com uma suíte de testes unitários e de integração desenvolvida com **JUnit 5 (Jupiter)**. Os testes cobrem:
-* **Criptografia (`CriptoTest`):** Validação do hashing de senhas com algoritmo MD5.
-* **Modelos de Domínio (`UserTest`, `BookTest`, `LoanTest`):** Validação de regras de negócio, cálculo de atrasos (`isDelayed`) e igualdade estrutural.
-* **Repositórios (`RepositoryIntegrationTest`):** Testes de persistência de dados de usuários, livros e empréstimos.
-  *(Nota: Um sistema de backup automático é acionado nos testes de integração para evitar sobrescrever seus arquivos de dados locais).*
+O projeto conta com uma suíte de 16 testes unitários e de integração desenvolvida com **JUnit 5 (Jupiter)** para assegurar a robustez do software e o cumprimento integral dos requisitos. Os testes realizados são:
+
+1. **Criptografia (`CriptoTest`)** [3 testes]:
+   * `testGetMD5Success`: Garante a correta geração de hash MD5 para senhas comuns.
+   * `testGetMD5EmptyString`: Valida a geração de hash MD5 para entradas vazias.
+   * `testGetMD5DifferentInputs`: Verifica que entradas diferentes geram hashes únicos.
+2. **Usuários (`UserTest`)** [4 testes]:
+   * `testUserCreationWithRandomId`: Valida a correta atribuição de dados e geração de UUID randômico.
+   * `testUserCreationWithSpecificId`: Testa o construtor com UUID predefinido.
+   * `testIsPasswordCorrect`: Valida a checagem case-insensitive do hash da senha e rejeição de senhas incorretas.
+   * `testUserEquality`: Assegura que dois usuários são equivalentes com base em seus atributos identificadores.
+3. **Livros (`BookTest`)** [3 testes]:
+   * `testBookCreation`: Valida a inicialização correta de atributos de um livro (ISBN, título, etc.).
+   * `testBookCopiesModification`: Testa o controle de contagem de cópias ativas.
+   * `testBookEquality`: Garante a equivalência de instâncias de livros baseadas no ISBN.
+4. **Empréstimos (`LoanTest`)** [3 testes]:
+   * `testLoanCreationAndGetters`: Garante a correta criação do empréstimo com status pendente.
+   * `testLoanFinishedState`: Valida que o empréstimo passa para o estado finalizado ao receber a data de término.
+   * `testLoanDelayedState`: Verifica se o sistema calcula e detecta empréstimos atrasados (`isDelayed`) com precisão.
+5. **Integração de Repositórios (`RepositoryIntegrationTest`)** [3 testes]:
+   * `testUserLifecycle`: Valida inserção, busca (ID/e-mail) e exclusão no repositório de usuários.
+   * `testBookLifecycleAndAvailability`: Valida inserção, empréstimo com decremento de cópias, lançamento da exceção `BookNotAvailableException` quando o estoque zera e o incremento no retorno.
+   * `testLoanRepository`: Valida criação, busca cruzada de empréstimos por usuário/ISBN e remoção no repositório.
+   *(Nota: Um sistema de backup automático é acionado nos testes de integração para salvar os arquivos de dados locais em temporários antes dos testes e restaurá-los ao fim, protegendo os dados do workspace).*
 
 ### Como Executar os Testes
 Navegue até a pasta raiz do projeto e execute:
