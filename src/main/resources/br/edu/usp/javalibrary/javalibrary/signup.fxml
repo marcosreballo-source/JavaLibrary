@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="350.0" prefWidth="450.0" style="-fx-background-color: #f8f9fa;"  xmlns:fx="http://javafx.com/fxml" fx:controller="br.edu.usp.javalibrary.javalibrary.view.SignupController">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Cadastro de Usuário" />
+
+                <GridPane hgap="10.0" vgap="15.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="80.0" prefWidth="80.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="35.0" vgrow="NEVER" />
+                        <RowConstraints minHeight="35.0" vgrow="NEVER" />
+                        <RowConstraints minHeight="35.0" vgrow="NEVER" />
+                        <RowConstraints minHeight="40.0" vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Nome:" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="nameField" promptText="Seu nome completo" prefHeight="30.0" GridPane.columnIndex="1" />
+
+                        <Label text="E-mail:" style="-fx-font-weight: bold;" GridPane.rowIndex="1" />
+                        <TextField fx:id="emailField" promptText="exemplo@usp.br" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Senha:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" />
+                        <PasswordField fx:id="passwordField" promptText="Digite sua senha" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <HBox alignment="CENTER_RIGHT" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="100.0" text="Voltar" />
+                                <Button mnemonicParsing="false" onAction="#onSubmit" prefHeight="35.0" prefWidth="100.0" style="-fx-base: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" text="Cadastrar" />
+                            </children>
+                        </HBox>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

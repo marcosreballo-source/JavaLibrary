@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml" fx:controller="br.edu.usp.javalibrary.javalibrary.view.book.CreateBookController">
+    <GridPane hgap="10.0" vgap="15.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="100.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="40.0" vgrow="NEVER" />
+        </rowConstraints>
+        <Label text="ISBN:" />
+        <TextField fx:id="txtIsbn" promptText="Apenas números" GridPane.columnIndex="1" />
+
+        <Label text="Título:" GridPane.rowIndex="1" />
+        <TextField fx:id="txtTitle" promptText="Título do livro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Descrição:" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets top="5.0" />
+            </GridPane.margin>
+        </Label>
+        <TextArea fx:id="txtDescription" prefHeight="100.0" promptText="Breve descrição ou resumo do livro" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Editora:" GridPane.rowIndex="3" />
+        <TextField fx:id="txtPublisher" promptText="Nome da editora" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="Autor:" GridPane.rowIndex="4" />
+        <TextField fx:id="txtAuthor" promptText="Nome do autor" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <Label text="Categoria:" GridPane.rowIndex="5" />
+        <TextField fx:id="txtCategory" promptText="Categoria do livro" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+        <Label text="Cópias:" GridPane.rowIndex="6" />
+        <TextField fx:id="txtCopies" promptText="Quantidade em estoque (Apenas números)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+        <HBox alignment="CENTER_RIGHT" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="100.0" text="Cancelar" />
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#handleSave" prefHeight="35.0" prefWidth="100.0" style="-fx-base: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" text="Salvar" />
+        </HBox>
+    </GridPane>
+</AnchorPane>

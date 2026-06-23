@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.usp.javalibrary.javalibrary.view.user.CreateUserController">
+    <GridPane hgap="10.0" vgap="15.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="110.0" prefWidth="110.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints minHeight="30.0" vgrow="NEVER" />
+            <RowConstraints fx:id="rowConfirmPassword" minHeight="30.0" vgrow="NEVER" /> <RowConstraints minHeight="40.0" vgrow="NEVER" />
+        </rowConstraints>
+        <children>
+            <Label text="Nome:" />
+            <TextField fx:id="txtName" promptText="Nome Completo" GridPane.columnIndex="1" />
+
+            <Label text="E-mail:" GridPane.rowIndex="1" />
+            <TextField fx:id="txtEmail" promptText="exemplo@usp.br" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label fx:id="lblPassword" text="Nova Senha:" GridPane.rowIndex="2" />
+            <PasswordField fx:id="txtPassword" promptText="Digite a senha" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label fx:id="lblConfirmPassword" text="Senha Atual:" GridPane.rowIndex="3" />
+            <PasswordField fx:id="txtConfirmPassword" promptText="Confirme com sua senha atual" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <HBox alignment="CENTER_RIGHT" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="100.0" text="Cancelar" />
+                <Button fx:id="btnSave" mnemonicParsing="false" onAction="#handleSave" prefHeight="35.0" prefWidth="100.0" style="-fx-base: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" text="Salvar" />
+            </HBox>
+        </children>
+    </GridPane>
+</AnchorPane>

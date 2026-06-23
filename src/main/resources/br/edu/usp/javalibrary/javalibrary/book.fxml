@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="440.0" minWidth="740.0" prefHeight="440.0" prefWidth="740.0" xmlns:fx="http://javafx.com/fxml" fx:controller="br.edu.usp.javalibrary.javalibrary.view.book.BookController">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <GridPane minHeight="50.0" VBox.vgrow="NEVER">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="170.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                        <TextField fx:id="search" maxHeight="35.0" maxWidth="1.7976931348623157E308" promptText="Buscar por título, ISBN, autor ou categoria" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        
+                        <Button fx:id="searchButton" maxHeight="50.0" maxWidth="75.0" minHeight="50.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleButtonSearch" prefHeight="50.0" prefWidth="75.0" text="Buscar" GridPane.columnIndex="1" />
+                        
+                        <Button fx:id="clearButton" maxHeight="50.0" maxWidth="75.0" minHeight="50.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleButtonClear" prefHeight="50.0" prefWidth="75.0" text="Limpar" GridPane.columnIndex="2" />
+                        
+                        <Button fx:id="addBook" maxHeight="50.0" maxWidth="100.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleButtonAddBook" prefHeight="50.0" prefWidth="100.0" text="Adicionar Livro" GridPane.columnIndex="3" />
+                        <Button fx:id="updateBook" maxHeight="50.0" maxWidth="100.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleButtonUpdateBook" prefHeight="50.0" prefWidth="100.0" text="Editar Livro" GridPane.columnIndex="4" />
+                        <Button fx:id="removeBook" maxHeight="50.0" maxWidth="100.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleButtonRemoveBook" prefHeight="50.0" prefWidth="100.0" text="Remover Livro" GridPane.columnIndex="5" />
+                        <Button fx:id="home" maxHeight="50.0" maxWidth="70.0" minHeight="50.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleButtonHome" prefHeight="50.0" prefWidth="70.0" text="Home" GridPane.columnIndex="6" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <TableView fx:id="booksTable" minHeight="350.0" minWidth="640.0" VBox.vgrow="ALWAYS">
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <columns>
+                  <TableColumn fx:id="isbn" minWidth="100.0" prefWidth="100.0" text="ISBN" />
+                  <TableColumn fx:id="title" minWidth="100.0" prefWidth="100.0" text="Título" />
+                  <TableColumn fx:id="description" minWidth="100.0" prefWidth="100.0" text="Descrição" />
+                  <TableColumn fx:id="publisher" minWidth="100.0" prefWidth="100.0" text="Editora" />
+                  <TableColumn fx:id="copies" minWidth="50.0" prefWidth="60.0" text="Cópias" />
+                  <TableColumn fx:id="author" minWidth="100.0" prefWidth="100.0" text="Autor" />
+                  <TableColumn fx:id="category" minWidth="100.0" prefWidth="100.0" text="Categoria" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
