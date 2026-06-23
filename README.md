@@ -31,6 +31,44 @@ O sistema foca fortemente na aplicação dos conceitos da Programação Orientad
 
 *(Nota: Caso você não possua o Maven instalado globalmente, usuários de Windows podem usar o script incluso no projeto digitando `.\mvnw.cmd clean javafx:run`)*
 
+## Suíte de Testes Automatizados
+O projeto conta com uma suíte de testes unitários e de integração desenvolvida com **JUnit 5 (Jupiter)**. Os testes cobrem:
+* **Criptografia (`CriptoTest`):** Validação do hashing de senhas com algoritmo MD5.
+* **Modelos de Domínio (`UserTest`, `BookTest`, `LoanTest`):** Validação de regras de negócio, cálculo de atrasos (`isDelayed`) e igualdade estrutural.
+* **Repositórios (`RepositoryIntegrationTest`):** Testes de persistência de dados de usuários, livros e empréstimos.
+  *(Nota: Um sistema de backup automático é acionado nos testes de integração para evitar sobrescrever seus arquivos de dados locais).*
+
+### Como Executar os Testes
+Navegue até a pasta raiz do projeto e execute:
+```bash
+mvn test
+```
+*(Caso não possua o Maven global, execute `.\mvnw.cmd test`)*
+
+### Resultados Obtidos
+A suíte executa 16 casos de teste, todos homologados e com 100% de aproveitamento:
+```txt
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running br.edu.usp.javalibrary.javalibrary.service.domains.BookTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+Running br.edu.usp.javalibrary.javalibrary.service.domains.LoanTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+Running br.edu.usp.javalibrary.javalibrary.service.domains.UserTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+Running br.edu.usp.javalibrary.javalibrary.service.repository.RepositoryIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+Running br.edu.usp.javalibrary.javalibrary.service.utils.CriptoTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+Results :
+
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] BUILD SUCCESS
+```
+
 ## Arquitetura Básica (Visão Geral)
 * O fluxo principal inicia na classe `MainApplication.java`, encarregada de inicializar o `Stage` do JavaFX.
 * A camada visual encontra-se no pacote `view`, interligada a Controladores responsáveis pelas lógicas gráficas dos arquivos `.fxml`. 
