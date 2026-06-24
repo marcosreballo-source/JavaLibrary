@@ -19,11 +19,11 @@
             <RowConstraints minHeight="40.0" vgrow="NEVER" />
         </rowConstraints>
         <children>
-            <Label text="ISBN do Livro:" />
-            <TextField fx:id="txtIsbn" promptText="Código ISBN" GridPane.columnIndex="1" />
+            <Label text="Livro:" />
+            <ComboBox fx:id="cmbBook" promptText="Selecione o Livro" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
 
-            <Label text="ID do Usuário (UUID):" GridPane.rowIndex="1" />
-            <TextField fx:id="txtUserId" promptText="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Usuário:" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cmbUser" promptText="Selecione o Usuário" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
             <Label text="Data de Início:" GridPane.rowIndex="2" />
             <DatePicker fx:id="dpStart" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
