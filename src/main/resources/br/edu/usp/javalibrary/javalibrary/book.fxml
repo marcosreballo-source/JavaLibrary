@@ -59,6 +59,7 @@
                   <TableColumn fx:id="description" minWidth="100.0" prefWidth="100.0" text="Descrição" />
                   <TableColumn fx:id="publisher" minWidth="100.0" prefWidth="100.0" text="Editora" />
                   <TableColumn fx:id="copies" minWidth="50.0" prefWidth="60.0" text="Cópias" />
+                  <TableColumn fx:id="status" minWidth="80.0" prefWidth="90.0" text="Status" />
                   <TableColumn fx:id="author" minWidth="100.0" prefWidth="100.0" text="Autor" />
                   <TableColumn fx:id="category" minWidth="100.0" prefWidth="100.0" text="Categoria" />
                </columns>

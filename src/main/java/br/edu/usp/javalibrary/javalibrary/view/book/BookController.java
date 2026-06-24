@@ -4,6 +4,7 @@ import br.edu.usp.javalibrary.javalibrary.service.domains.Book;
 import br.edu.usp.javalibrary.javalibrary.service.repository.BookRepository;
 import br.edu.usp.javalibrary.javalibrary.service.repository.LoanRepository;
 import br.edu.usp.javalibrary.javalibrary.view.HomeView;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -47,6 +48,9 @@ public class BookController {
     @FXML
     private TableColumn<Book, Integer> copies;
 
+    @FXML
+    private TableColumn<Book, String> status;
+
     private final ObservableList<Book> bookList = FXCollections.observableArrayList();
 
     @FXML
@@ -57,6 +61,20 @@ public class BookController {
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
         copies.setCellValueFactory(new PropertyValueFactory<>("copiesCount"));
+        
+        status.setCellValueFactory(cellData -> {
+            String isbnVal = cellData.getValue().getIsbn();
+            boolean hasLoan = LoanRepository.getInstance().hasLoanByBookIsbn(isbnVal);
+            int available = cellData.getValue().getCopiesCount();
+            if (hasLoan) {
+                return new SimpleStringProperty("Emprestado");
+            } else if (available > 0) {
+                return new SimpleStringProperty("Disponível");
+            } else {
+                return new SimpleStringProperty("Sem Estoque");
+            }
+        });
+
         author.setCellValueFactory(new PropertyValueFactory<>("author"));
         category.setCellValueFactory(new PropertyValueFactory<>("category"));
 
