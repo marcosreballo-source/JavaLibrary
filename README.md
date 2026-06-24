@@ -174,6 +174,20 @@ classDiagram
         + handleButtonRemoveLoan(): void
     }
 
+    class BookController {
+        + initialize(): void
+        + handleButtonAddBook(): void
+        + handleButtonUpdateBook(): void
+        + handleButtonRemoveBook(): void
+    }
+
+    class UserController {
+        + initialize(): void
+        + handleButtonAddUser(): void
+        + handleButtonUpdateUser(): void
+        + handleButtonRemoveUser(): void
+    }
+
     UserRepository ..> JsonService : uses
     BookRepository ..> JsonService : uses
     LoanRepository ..> JsonService : uses
@@ -189,4 +203,10 @@ classDiagram
     LoanController ..> LoanRepository : fetches data
     LoanController ..> BookRepository : translates titles
     LoanController ..> UserRepository : translates names
+
+    BookController ..> BookRepository : manages books
+    BookController ..> LoanRepository : checks active loans
+
+    UserController ..> UserRepository : manages users
+    UserController ..> LoanRepository : checks active loans
 ```
